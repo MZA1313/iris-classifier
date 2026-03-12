@@ -15,7 +15,7 @@ def main(test_size, random_state):
     X = iris.data
     y = iris.target
 
-    # Train/test split
+    # Split data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, random_state=random_state
     )
@@ -35,10 +35,10 @@ def main(test_size, random_state):
     print("Confusion Matrix:")
     print(cm)
 
-    # Make sure outputs folder exists
+    # Create outputs folder if it doesn't exist
     os.makedirs("outputs", exist_ok=True)
 
-    # Save trained model
+    # Save the trained model
     joblib.dump(model, "outputs/model.joblib")
 
     # Save confusion matrix image
